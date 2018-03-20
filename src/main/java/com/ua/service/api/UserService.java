@@ -1,6 +1,7 @@
 package com.ua.service.api;
 
 import com.ua.db.entity.UserEntity;
+import com.ua.dto.UserDto;
 
 /**
  * @autor Oleksii_Shylo
@@ -22,6 +23,13 @@ public interface UserService {
      * @return return true if user was modified, otherwise - false
      */
     boolean modify(UserEntity user);
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    UserDto getUserById(long id);
 
 
 }
