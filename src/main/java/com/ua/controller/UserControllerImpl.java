@@ -4,6 +4,8 @@ import com.ua.controller.api.UserController;
 import com.ua.dto.UserDto;
 import com.ua.db.entity.UserEntity;
 import com.ua.service.api.UserService;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +27,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserControllerImpl implements UserController {
+
+    private static final Logger LOGGER = LogManager.getLogger(UserControllerImpl.class);
 
     @Autowired
     private UserService userService;
@@ -45,9 +50,12 @@ public class UserControllerImpl implements UserController {
     }
 
     @Override
-    @GetMapping(value = "/get", consumes = {MediaType.APPLICATION_JSON_VALUE},
+    @GetMapping(value = "/get",
+//            consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<UserDto> getUsers() {
+    public @ResponseBody List<UserDto> getUsers() {
+        LOGGER.debug("Get all users");
+        LOGGER.error("Get all users");
         List<UserDto> users = new ArrayList<>();
         UserDto userDto = new UserDto();
         userDto.setFirstName("First");
@@ -62,6 +70,7 @@ public class UserControllerImpl implements UserController {
         userDto2.setPassword("pass2");
         users.add(userDto);
         users.add(userDto2);
+        LOGGER.debug("users: " + users);
         return users;
     }
 }

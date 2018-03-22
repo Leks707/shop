@@ -1,33 +1,33 @@
 package com.ua.db.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * @autor Oleksii_Shylo
  */
-@Entity
-@Table(name = "User")
+//@Entity
+//@Table(name = "User")
 public class UserEntity {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private long id;
-    @Column(name = "first_name")
+//    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "last_name")
+//    @Column(name = "last_name")
     private String lastName;
-    @Column(name="password")
+//    @Column(name="password")
     private String password;
-    @Column(name="email")
+//    @Column(name="email")
     private String email;
-    @Column(name="phone")
+//    @Column(name="phone")
     private int phoneNumber;
-    @Column(name="birthday")
+//    @Column(name="birthday")
     private Date birthday;
 
     /**
