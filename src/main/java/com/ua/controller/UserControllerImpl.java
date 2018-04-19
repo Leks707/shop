@@ -4,6 +4,7 @@ import com.ua.controller.api.UserController;
 import com.ua.dto.UserDto;
 import com.ua.db.entity.UserEntity;
 import com.ua.service.api.UserService;
+import io.swagger.annotations.Api;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Controller that provides methods for dealing with users.
+ *
  * @autor Oleksii_Shylo
  */
 @RestController
 @RequestMapping("/user")
+@Api(value = "/user", description = "Provides methods for dealing with users")
 public class UserControllerImpl implements UserController {
 
     private static final Logger LOGGER = LogManager.getLogger(UserControllerImpl.class);
