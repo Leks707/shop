@@ -1,10 +1,8 @@
 package com.ua.service;
 
-import com.ua.db.entity.UserEntity;
-import com.ua.db.repository.api.UserRepository;
+import com.ua.db.entity.User;
 import com.ua.dto.UserDto;
 import com.ua.service.api.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,12 +15,12 @@ public class UserServiceImpl implements UserService {
 //    private UserRepository userRepository;
 
     @Override
-    public boolean create(UserEntity user) {
+    public boolean create(User user) {
         return false;
     }
 
     @Override
-    public boolean modify(UserEntity user) {
+    public boolean modify(User user) {
         return false;
     }
 

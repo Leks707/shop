@@ -2,7 +2,7 @@ package com.ua.controller;
 
 import com.ua.controller.api.UserController;
 import com.ua.dto.UserDto;
-import com.ua.db.entity.UserEntity;
+import com.ua.db.entity.User;
 import com.ua.service.api.UserService;
 import io.swagger.annotations.Api;
 import org.apache.log4j.LogManager;
@@ -41,7 +41,7 @@ public class UserControllerImpl implements UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public boolean createUser(@RequestBody UserDto userDto) {
-        UserEntity userEntity = new UserEntity();
+        User userEntity = new User();
         userEntity.setFirstName(userDto.getFirstName());
         userEntity.setLastName(userDto.getLastName());
         return userService.create(userEntity);

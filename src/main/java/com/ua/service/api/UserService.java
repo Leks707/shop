@@ -1,6 +1,6 @@
 package com.ua.service.api;
 
-import com.ua.db.entity.UserEntity;
+import com.ua.db.entity.User;
 import com.ua.dto.UserDto;
 
 /**
@@ -14,7 +14,7 @@ public interface UserService {
      * @param user - user entity that will be created.
      * @return return true if user was created, otherwise - false
      */
-    boolean create(UserEntity user);
+    boolean create(User user);
 
     /**
      * Modifies existing user.
@@ -22,7 +22,7 @@ public interface UserService {
      * @param user - user entity that will be modified.
      * @return return true if user was modified, otherwise - false
      */
-    boolean modify(UserEntity user);
+    boolean modify(User user);
 
     /**
      *
