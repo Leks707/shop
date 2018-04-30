@@ -1,94 +1,44 @@
 package com.ua.db.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @autor Oleksii_Shylo
  */
 @Entity
-@Table(name = "User")
+@Data
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue
     private long id;
+    @NotNull
     @Column(name = "first_name")
     private String firstName;
+    @NotNull
     @Column(name = "last_name")
     private String lastName;
+    @NotNull
     @Column(name="password")
     private String password;
+    @NotNull
     @Column(name="email")
     private String email;
     @Column(name="phone")
     private int phoneNumber;
     @Column(name="birthday")
     private Date birthday;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 15)
+    private Role role;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_id")
+    private List<Order> orders;
 
-    /**
-     * @return
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
 }
