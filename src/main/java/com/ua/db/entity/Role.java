@@ -2,5 +2,5 @@ package com.ua.db.entity;
 
 public enum Role {
 
-    ADMIN
+    ADMIN, MANAGER, CLIENT
 }
