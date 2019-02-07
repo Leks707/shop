@@ -44,13 +44,15 @@ public class UserController implements IUserController {
         User userEntity = new User();
         userEntity.setFirstName(userDto.getFirstName());
         userEntity.setLastName(userDto.getLastName());
-        return userService.create(userEntity);
+//        return userService.create(userEntity);
+        return false;
     }
 
     @Override
     @GetMapping("/get/{id}")
     public UserDto getUserById(@PathVariable("id") long id) {
-        return userService.getUserById(id);
+//        return userService.getUserById(id);
+        return null;
     }
 
     @Override

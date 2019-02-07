@@ -4,6 +4,7 @@ import com.ua.db.entity.User;
 import com.ua.db.mapper.UserMapper;
 import com.ua.db.repository.api.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -21,8 +22,9 @@ public class UserRepository implements IUserRepository {
     @Autowired
     private DataSource dataSource;
     @Autowired
+    @Qualifier("namedParameterJdbcTemplate")
     private NamedParameterJdbcTemplate jdbcTemplate;
-    @Autowired
+//    @Autowired
     private RowMapper<User> userMapper;
 
     @Override
