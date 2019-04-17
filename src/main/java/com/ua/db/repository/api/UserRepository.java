@@ -1,11 +1,12 @@
 package com.ua.db.repository.api;
 
 import com.ua.db.entity.User;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 /**
  * @autor Oleksii_Shylo
  */
-public interface UserRepository extends Repository<User, Long> {
+@NoRepositoryBean
+public interface UserRepository extends BaseRepository<User, Long> {
 
 }

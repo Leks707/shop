@@ -6,6 +6,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 /**
@@ -15,12 +18,12 @@ import java.util.Date;
 public class UserDto {
 
     @NotNull
-    @Size(min=2, max=20)
+    @Size(min = 2, max = 20)
     private String firstName;
     @NotNull
     private String lastName;
     @NotNull
-    @Size(min=10, max=20)
+    @Size(min = 10, max = 20)
     private String password;
     @NotNull
     private String confirmPassword;
