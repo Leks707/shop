@@ -18,10 +18,10 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
-    @NotNull
+    @NotNull(message = "first name can't be null")
     @Column(name = "first_name")
     private String firstName;
-    @NotNull
+    @NotNull(message = "last name can't be null")
     @Column(name = "last_name")
     private String lastName;
     @NotNull
