@@ -4,9 +4,10 @@ import com.ua.controller.api.IUserController;
 import com.ua.dto.UserDto;
 import com.ua.db.entity.User;
 import com.ua.service.api.IUserService;
+import com.ua.validator.UserValidator;
 import io.swagger.annotations.Api;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -36,7 +37,7 @@ public class UserController implements IUserController {
     private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
     @Autowired
-    private UserFormValidator userFormValidator;
+    private UserValidator userValidator;
 
     @Autowired
     private IUserService userService;

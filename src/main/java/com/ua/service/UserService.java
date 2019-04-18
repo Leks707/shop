@@ -17,16 +17,16 @@ public class UserService implements IUserService {
 
     @Override
     public User create(User user) {
-        return (User) userRepository.save(user);
+        return userRepository.save(user);
     }
 
     @Override
     public User modify(User user) {
-        return (User) userRepository.save(user);
+        return userRepository.save(user);
     }
 
     @Override
     public User findUserById(long id) {
-        return userRepository.findById(id);
+        return userRepository.findById(id).get();
     }
 }

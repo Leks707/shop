@@ -12,11 +12,11 @@ import java.util.List;
  */
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "user_table")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     @NotNull(message = "first name can't be null")
     @Column(name = "first_name")
@@ -30,15 +30,15 @@ public class User {
     @NotNull
     @Column(name="email")
     private String email;
-    @Column(name="phone")
-    private int phoneNumber;
-    @Column(name="birthday")
-    private Date birthday;
-    @Enumerated(EnumType.STRING)
-    @Column(length = 15)
-    private Role role;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id")
-    private List<Order> orders;
+//    @Column(name="phone")
+//    private int phoneNumber;
+//    @Column(name="birthday")
+//    private Date birthday;
+//    @Enumerated(EnumType.STRING)
+//    @Column(length = 15)
+//    private Role role;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "order_id")
+//    private List<Order> orders;
 
 }
