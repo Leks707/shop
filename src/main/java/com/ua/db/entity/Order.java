@@ -6,16 +6,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Data
 @Entity
-@Table(name = "order")
+@Data
+@Table(name = "orders")
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     @NotNull
-    @Column(name = "first_name")
+    @Column(name = "order_date")
     private Date orderDate;
 
 }

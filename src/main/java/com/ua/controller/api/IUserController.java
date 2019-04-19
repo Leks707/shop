@@ -1,5 +1,6 @@
 package com.ua.controller.api;
 
+import com.ua.db.entity.User;
 import com.ua.dto.UserDto;
 import org.springframework.ui.Model;
 
@@ -23,7 +24,7 @@ public interface IUserController {
      * @param id - user identifier
      * @return existing user or null if user doesn't exist
      */
-    String findUserById(long id, Model model);
+    User findUserById(long id, Model model);
 
     /**
      *

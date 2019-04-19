@@ -2,6 +2,7 @@ package com.ua.configuration;
 
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,37 +21,29 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-//@PropertySource("classpath:application.properties")
-//@EnableJpaRepositories("com.ua.db.repository")
+@PropertySource("classpath:application.properties")
 public class DataSourceConfig {
 
-//    /**
-//     * Create jdbcTemplate bean
-//     *
-//     * @return bean for jdbc template
-//     */
-//    @Bean(name = "namedParameterJdbcTemplate")
-//    public NamedParameterJdbcTemplate getJdbcTemplate(DataSourceProperties dataSourceProperties) {
-//        return new NamedParameterJdbcTemplate(getDataSource(dataSourceProperties));
-//    }
-//
-//    /**
-//     *
-//     * @return datasource properties
-//     */
-//    @Bean
-//    @Primary
-//    @ConfigurationProperties("app.datasource")
-//    public static DataSourceProperties dataSourceProperties() {
-//        return new DataSourceProperties();
-//    }
-//
+    /**
+     * @return datasource properties
+     */
+    @Bean
+    @Primary
+    public static DataSourceProperties dataSourceProperties() {
+        return new DataSourceProperties();
+    }
+
     /**
      * @return bean for datasource
      */
     @Bean("dataSource")
     public DataSource getDataSource(DataSourceProperties dataSourceProperties) {
-       return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
+        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        dataSourceBuilder.driverClassName(dataSourceProperties.getDriverClassName());
+        dataSourceBuilder.url(dataSourceProperties.getUrl());
+        dataSourceBuilder.username(dataSourceProperties.getUsername());
+        dataSourceBuilder.password(dataSourceProperties.getPassword());
+        return dataSourceBuilder.build();
     }
 
     @Bean

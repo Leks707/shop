@@ -6,6 +6,8 @@ import com.ua.service.api.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * @autor Oleksii_Shylo
  */
@@ -27,6 +29,7 @@ public class UserService implements IUserService {
 
     @Override
     public User findUserById(long id) {
-        return userRepository.findById(id).get();
+        Optional<User> userOptional = userRepository.findById(id);
+        return userOptional.isPresent() ? userOptional.get() : null;
     }
 }

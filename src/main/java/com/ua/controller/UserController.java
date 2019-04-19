@@ -55,14 +55,14 @@ public class UserController implements IUserController {
 
     @Override
     @GetMapping("/{id}")
-    public String findUserById(@PathVariable("id") long id, Model model) {
+    public User findUserById(@PathVariable("id") long id, Model model) {
         LOGGER.debug("find user by id: " + id);
         User user = userService.findUserById(id);
         model.addAttribute("user", user);
         if (user == null) {
             model.addAttribute("message", "User not found");
         }
-        return "users/show";
+        return user;
     }
 
     @Override
